@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 
 import AppEntryPoint from './components/app/AppEntryPoint';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = document.getElementById('root') as HTMLElement;
 
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <AppEntryPoint />
-  </React.StrictMode>
+  </React.StrictMode>,
+  root
 );

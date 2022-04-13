@@ -7,6 +7,7 @@ import SortCars from './components/SortCars';
 import Sidebar from './components/Sidebar';
 import PageLayout from '../../components/layout/PageLayout';
 import CarsList from '../../components/car/CarsList';
+import { nodeModuleNameResolver } from 'typescript';
 
 const cars = require('../../constants/cars.json')[0]['VehAvailRSCore'];
 
