@@ -1,5 +1,5 @@
 const codeContextToVendorLogo = Object.freeze({
-  CARTRAWLER: './images/ct-logo-dark.svg',
+  CARTRAWLER: '/images/ct-logo-dark.svg',
 });
 
 export const returnVendorLogoFromCodeContext = (vendor: string) => {

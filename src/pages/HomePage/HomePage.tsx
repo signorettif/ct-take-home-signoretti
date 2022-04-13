@@ -3,10 +3,10 @@ import { Box } from '@chakra-ui/react';
 
 import ContentContainer from '../../components/layout/ContentContainer';
 import SearchDetails from './components/SearchDetails';
-import CarsList from './components/CarsList';
 import SortCars from './components/SortCars';
 import Sidebar from './components/Sidebar';
 import PageLayout from '../../components/layout/PageLayout';
+import CarsList from '../../components/car/CarsList';
 
 const cars = require('../../constants/cars.json')[0]['VehAvailRSCore'];
 

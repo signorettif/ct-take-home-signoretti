@@ -5,7 +5,7 @@ import CarCard from './CarCard';
 
 interface CarsListProps {}
 
-const cars = require('../../../constants/cars.json')[0]['VehAvailRSCore'][
+const cars = require('../../constants/cars.json')[0]['VehAvailRSCore'][
   'VehVendorAvails'
 ];
 
@@ -18,8 +18,9 @@ const CarsList: React.FC = ({}: CarsListProps) => {
       {carsToDisplay.map((vendor: { [x: string]: any }) =>
         vendor['VehAvails'].map((car: { [x: string]: any }, i: number) => (
           <CarCard
-            key={`car-${vendor['@Code']}-${i}`}
+            key={`car-${vendor['Vendor']['@Code']}-${i}`}
             car={car as CarDetails}
+            vendorCode={vendor['Vendor']['@Code']}
           />
         ))
       )}

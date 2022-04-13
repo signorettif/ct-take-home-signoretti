@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { returnVendorLogoFromCodeContext } from '../../../shared/utils/returnVendorLogoFromCodeContext';
+import { returnVendorLogoFromCodeContext } from '../../shared/utils/returnVendorLogoFromCodeContext';
 
 import {
   Box,
@@ -12,17 +12,24 @@ import {
   Text,
 } from '@chakra-ui/react';
 import CarSpecs from './CarSpecs';
+import { useNavigate } from 'react-router-dom';
 
 interface CarCardProps {
   car: CarDetails;
+  vendorCode: string;
+  hiddenDetailsButton?: boolean;
 }
 
 //TODO@ price tooltip showing estimated amount on top of rate total amount
 //TODO@ check if car is available
 //TODO@ shorthands for folders
 
-const CarCard: React.FC<CarCardProps> = ({ car }) => {
-  console.log(car);
+const CarCard: React.FC<CarCardProps> = ({
+  car,
+  vendorCode,
+  hiddenDetailsButton = false,
+}) => {
+  let navigate = useNavigate();
 
   return (
     <Box
@@ -49,9 +56,17 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
               {car.TotalCharge['@RateTotalAmount']}{' '}
               {car.TotalCharge['@CurrencyCode']}
             </Text>
-            <Button colorScheme="teal" size="sm">
-              See details
-            </Button>
+            {!hiddenDetailsButton && (
+              <Button
+                colorScheme="teal"
+                size="sm"
+                onClick={() =>
+                  navigate(`/car/${vendorCode}/${car.Vehicle['@Code']}`)
+                }
+              >
+                See details
+              </Button>
+            )}
           </Box>
         </Box>
         <Divider marginY={4} />

@@ -11,7 +11,7 @@ const AppEntryPoint: React.FC = () => (
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<HomePage />} />
-        <Route path="/car/:carId" element={<CarPage />} />
+        <Route path="/car/:vendorId/:carCode" element={<CarPage />} />
       </Routes>
     </BrowserRouter>
   </ChakraProvider>

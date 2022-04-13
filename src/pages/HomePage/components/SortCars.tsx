@@ -14,10 +14,8 @@ const SortCars: React.FC = ({}: SortCarsProps) => {
       marginY={4}
     >
       <Text as="b">Sort by:</Text>
-      <Select maxW={64} marginLeft={4}>
-        <option value="price_low_to_high" selected>
-          Price: Low to High
-        </option>
+      <Select maxW={64} marginLeft={4} defaultValue="price_low_to_high">
+        <option value="price_low_to_high">Price: Low to High</option>
         <option value="price_high_to_low">Price: High to Low</option>
         <option value="passenger_quantity">Passengers Quantity</option>
       </Select>
