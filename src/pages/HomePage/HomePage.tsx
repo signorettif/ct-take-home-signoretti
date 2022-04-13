@@ -1,4 +1,8 @@
 import React from 'react';
+
+import { useQuery } from 'react-query';
+import { getSearchResults } from '../../shared/api/getSearchResults';
+
 import { Box } from '@chakra-ui/react';
 
 import ContentContainer from '../../components/layout/ContentContainer';
@@ -7,32 +11,43 @@ import SortCars from './components/SortCars';
 import Sidebar from './components/Sidebar';
 import PageLayout from '../../components/layout/PageLayout';
 import CarsList from '../../components/car/CarsList';
-import { nodeModuleNameResolver } from 'typescript';
-
-const cars = require('../../constants/cars.json')[0]['VehAvailRSCore'];
+import LoadingBox from '../../components/ui/loadingBox';
+import useCarsList from '../../hooks/useCarsList';
 
 const HomePage: React.FC = () => {
-  const querySearchDetails = cars['VehRentalCore'];
+  // This is just to show how I would go about actually fetching the data, clearly a bit overkill here
+  const { data, isLoading } = useQuery<SearchResults, Error>(
+    'search-results',
+    getSearchResults
+  );
+
+  const { filteredCarsList, sort, setSort, setCarsFilter } = useCarsList();
 
   return (
     <PageLayout>
-      <ContentContainer marginTop={16}>
-        <SearchDetails
-          PickUpDateTime={querySearchDetails['@PickUpDateTime']}
-          ReturnDateTime={querySearchDetails['@ReturnDateTime']}
-          {...querySearchDetails}
-        />
-      </ContentContainer>
+      {!isLoading && data && filteredCarsList ? (
+        <>
+          <ContentContainer marginTop={16}>
+            <SearchDetails
+              PickUpDateTime={data.VehRentalCore['@PickUpDateTime']}
+              ReturnDateTime={data.VehRentalCore['@ReturnDateTime']}
+              {...data.VehRentalCore}
+            />
+          </ContentContainer>
 
-      <ContentContainer marginTop={10}>
-        <SortCars />
-        <Box display="flex" gap={4}>
-          <Sidebar />
-          <Box width="100%">
-            <CarsList />
-          </Box>
-        </Box>
-      </ContentContainer>
+          <ContentContainer marginTop={10}>
+            <SortCars sort={sort} setSort={setSort} />
+            <Box display="flex" gap={4}>
+              <Sidebar setCarsFilter={setCarsFilter} />
+              <Box width="100%">
+                <CarsList carsList={filteredCarsList} />
+              </Box>
+            </Box>
+          </ContentContainer>
+        </>
+      ) : (
+        <LoadingBox />
+      )}
     </PageLayout>
   );
 };

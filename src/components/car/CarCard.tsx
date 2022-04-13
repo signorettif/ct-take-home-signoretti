@@ -15,8 +15,7 @@ import CarSpecs from './CarSpecs';
 import { useNavigate } from 'react-router-dom';
 
 interface CarCardProps {
-  car: CarDetails;
-  vendorCode: string;
+  car: CarDetailsWithId;
   hiddenDetailsButton?: boolean;
 }
 
@@ -26,7 +25,6 @@ interface CarCardProps {
 
 const CarCard: React.FC<CarCardProps> = ({
   car,
-  vendorCode,
   hiddenDetailsButton = false,
 }) => {
   let navigate = useNavigate();
@@ -60,9 +58,7 @@ const CarCard: React.FC<CarCardProps> = ({
               <Button
                 colorScheme="teal"
                 size="sm"
-                onClick={() =>
-                  navigate(`/car/${vendorCode}/${car.Vehicle['@Code']}`)
-                }
+                onClick={() => navigate(`/car/${car.id}`)}
               >
                 See details
               </Button>

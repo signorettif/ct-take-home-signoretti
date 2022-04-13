@@ -5,3 +5,7 @@
 ###Possible improvements:
 
 - `404` page, currently `HomePage` component catches all the non signed pages
+
+TODO:
+
+- beautify import paths
