@@ -11,7 +11,7 @@ const Header: React.FC = () => {
           h="100%"
           w="auto"
           maxW={32}
-          src="./images/ct-logo-light.svg"
+          src="/images/ct-logo-light.svg"
           cursor="pointer"
         />
       </ContentContainer>

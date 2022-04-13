@@ -24,7 +24,7 @@ const SearchDetails: React.FC<SearchDetailsProps> = ({
     w="100%"
     p={4}
     display="flex"
-    borderRadius={5}
+    borderRadius={6}
     backgroundColor="gray.100"
     alignItems="center"
   >

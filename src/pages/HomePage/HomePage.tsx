@@ -1,21 +1,20 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-import Header from '../../components/layout/Header';
 import ContentContainer from '../../components/layout/ContentContainer';
 import SearchDetails from './components/SearchDetails';
+import CarsList from './components/CarsList';
+import SortCars from './components/SortCars';
+import Sidebar from './components/Sidebar';
+import PageLayout from '../../components/layout/PageLayout';
 
 const cars = require('../../constants/cars.json')[0]['VehAvailRSCore'];
 
 const HomePage: React.FC = () => {
-  // //TODO@ load cars from endpoint using react query
-  console.log(cars);
-
   const querySearchDetails = cars['VehRentalCore'];
 
   return (
-    <Box w="100%">
-      <Header />
+    <PageLayout>
       <ContentContainer marginTop={16}>
         <SearchDetails
           PickUpDateTime={querySearchDetails['@PickUpDateTime']}
@@ -23,7 +22,17 @@ const HomePage: React.FC = () => {
           {...querySearchDetails}
         />
       </ContentContainer>
-    </Box>
+
+      <ContentContainer marginTop={10}>
+        <SortCars />
+        <Box display="flex" gap={4}>
+          <Sidebar />
+          <Box width="100%">
+            <CarsList />
+          </Box>
+        </Box>
+      </ContentContainer>
+    </PageLayout>
   );
 };
 
