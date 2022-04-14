@@ -1,6 +1,15 @@
+import React from 'react';
+
 import { CalendarIcon } from '@chakra-ui/icons';
 import { Grid, GridItem } from '@chakra-ui/react';
-import React from 'react';
+
+import TransmissionIcon from '../icons/TransmissionIcon';
+import CarSpecWithIcon from './CarSpecWithIcon';
+import AirIcon from '../icons/AirIcon';
+import LuggageIcon from '../icons/LuggageIcon';
+import SeatsIcon from '../icons/SeatsIcon';
+import FuelIcon from '../icons/FuelIcon';
+import DoorIcon from '../icons/DoorIcon';
 
 interface CarSpecsProps {
   carSpecs: CarDetails['Vehicle'];
@@ -10,36 +19,37 @@ const CarSpecs: React.FC<CarSpecsProps> = ({ carSpecs }) => {
   return (
     <Grid w="100%" gridTemplateColumns={'auto auto'} gap={2} fontSize="sm">
       {carSpecs['@AirConditionInd'] === 'true' && (
-        <GridItem display="flex" alignItems="center">
-          <CalendarIcon />
-        </GridItem>
+        <CarSpecWithIcon spec="Air Conditioning" icon={<AirIcon />} />
       )}
-      <GridItem display="flex" alignItems="center">
-        <CalendarIcon />
-        {carSpecs['@BaggageQuantity']}
-      </GridItem>
-      <GridItem display="flex" alignItems="center">
-        <CalendarIcon />
-        {carSpecs['@DoorCount']} Doors
-      </GridItem>
+
+      <CarSpecWithIcon
+        spec={carSpecs['@BaggageQuantity']}
+        icon={<LuggageIcon />}
+      />
+
+      <CarSpecWithIcon
+        spec={`${carSpecs['@DoorCount']} Seats`}
+        icon={<DoorIcon />}
+      />
+
       {carSpecs['@DriveType'] !== 'Unspecified' && (
         <GridItem display="flex" alignItems="center">
           <CalendarIcon />
           {carSpecs['@DriveType']}
         </GridItem>
       )}
-      <GridItem display="flex" alignItems="center">
-        <CalendarIcon />
-        {carSpecs['@FuelType']}
-      </GridItem>
-      <GridItem display="flex" alignItems="center">
-        <CalendarIcon />
-        {carSpecs['@PassengerQuantity']} Seats
-      </GridItem>
-      <GridItem display="flex" alignItems="center">
-        <CalendarIcon />
-        {carSpecs['@TransmissionType']}
-      </GridItem>
+
+      <CarSpecWithIcon spec={carSpecs['@FuelType']} icon={<FuelIcon />} />
+
+      <CarSpecWithIcon
+        spec={`${carSpecs['@PassengerQuantity']} Seats`}
+        icon={<SeatsIcon />}
+      />
+
+      <CarSpecWithIcon
+        spec={carSpecs['@TransmissionType']}
+        icon={<TransmissionIcon />}
+      />
     </Grid>
   );
 };
