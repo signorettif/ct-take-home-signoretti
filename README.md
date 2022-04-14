@@ -1,6 +1,11 @@
 # 🔗 [Live demo available here](https://cartrawler-take-home-signoretti.netlify.app/)
 
-## How to deploy
+## Develop
+
+1. Install dependencies using `yarn install`
+2. Start development server using `yarn start`
+
+## Deploy
 
 ⚠️ The project is automatically deployed using Netlify. Any commit to the `master` branch will be picked up, built and (if successful) deployed on https://cartrawler-take-home-signoretti.netlify.app/
 
@@ -22,6 +27,7 @@ If you would like to self host this repository on a dedicated server:
 
 - **Improve website's responsiveness**: In a production environment, I would make sure Items resize properly when dealing with mobile phone and I would have hidden the filters sidebar away
 - **E2E tests**: In a production environment, I would set up E2E using cypress to make sure buttons, filters, sorts, etc behave as expected
+- **Icons**: Icons have been choosen at random from the available set in `chakra-ui/icons`, but are not representative of the displayed information
 
 TODO:
 
@@ -31,3 +37,4 @@ TODO:
 - [x] Group by vendor
 - [] FIx bug with vendor list
 - [] Commenti lore
+- [] Unit tests

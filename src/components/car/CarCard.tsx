@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { returnVendorLogoFromCodeContext } from '../../shared/utils/returnVendorLogoFromCodeContext';
+import { returnVendorLogoFromCodeContext } from '../../utils/returnVendorLogoFromCodeContext';
 
 import {
   Box,
@@ -48,17 +48,26 @@ const CarCard: React.FC<CarCardProps> = ({
         </Heading>
         <Box display="flex" marginTop={4}>
           <CarSpecs carSpecs={car.Vehicle} />
-          <Box>
-            <Text>Total price for your trip:</Text>
-            <Text>
+
+          <Box
+            width="50%"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+          >
+            <Text fontSize="xs">Total price for your trip:</Text>
+
+            <Text as="b">
               {car.TotalCharge['@RateTotalAmount']}{' '}
               {car.TotalCharge['@CurrencyCode']}
             </Text>
+
             {!hiddenDetailsButton && (
               <Button
                 colorScheme="teal"
                 size="sm"
                 onClick={() => navigate(`/car/${car.id}`)}
+                marginTop={4}
               >
                 See details
               </Button>

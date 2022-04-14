@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useQuery } from 'react-query';
-import { getSearchResults } from '../../shared/api/getSearchResults';
+import { getSearchResults } from '../../api/getSearchResults';
 
 import { Box } from '@chakra-ui/react';
 

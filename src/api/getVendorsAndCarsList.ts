@@ -1,4 +1,4 @@
-const vendorsAndCarsList = require('../../constants/cars.json')[0][
+const vendorsAndCarsList = require('../constants/cars.json')[0][
   'VehAvailRSCore'
 ]['VehVendorAvails'];
 

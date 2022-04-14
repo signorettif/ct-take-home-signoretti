@@ -12,11 +12,11 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-import { returnMinAndMaxPriceFromCarsList } from '../../../shared/utils/returnMinAndMaxPriceFromCarsList';
+import { returnMinAndMaxPriceFromCarsList } from '../../../utils/returnMinAndMaxPriceFromCarsList';
 
 import useCarsList from '../../../hooks/useCarsList';
 import { VENDORS } from '../../../constants/constants';
-import { toggleItemFromStringArray } from '../../../shared/utils/toggleItemFromArray';
+import { toggleItemFromStringArray } from '../../../utils/toggleItemFromArray';
 
 interface SidebarProps {
   setCarsFilter: React.Dispatch<React.SetStateAction<CarsFilter>>;
@@ -24,7 +24,6 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ setCarsFilter, filter }) => {
-  console.log(filter);
   const { carsList } = useCarsList();
   const [min, max] = returnMinAndMaxPriceFromCarsList(carsList);
 

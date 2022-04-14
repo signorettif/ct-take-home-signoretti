@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { useQuery } from 'react-query';
 
-import { getVendorsAndCarsList } from '../shared/api/getVendorsAndCarsList';
-import { filterCarsList } from '../shared/utils/filterCarsList';
+import { getVendorsAndCarsList } from '../api/getVendorsAndCarsList';
+import { filterCarsList } from '../utils/filterCarsList';
 
 export const enum carsListSortingOptions {
   PRICE_LOW_TO_HIGH = 'price_low_to_high',

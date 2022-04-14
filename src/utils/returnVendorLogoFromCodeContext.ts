@@ -1,6 +1,6 @@
 const codeContextToVendorLogo = Object.freeze({
   AVIS: '/images/avis-logo.svg',
-  HERTZ: 'images/hertz-logo.svg',
+  HERTZ: '/images/hertz-logo.svg',
   ALAMO: '/images/alamo-logo.svg',
 });
 
