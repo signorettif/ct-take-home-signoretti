@@ -15,7 +15,7 @@ import CarSpecs from './CarSpecs';
 import { useNavigate } from 'react-router-dom';
 
 interface CarCardProps {
-  car: CarDetailsWithId;
+  car: CarDetailsWithIdAndVendor;
   hiddenDetailsButton?: boolean;
 }
 
@@ -67,10 +67,7 @@ const CarCard: React.FC<CarCardProps> = ({
         </Box>
         <Divider marginY={4} />
         <Box display="flex" alignItems="center">
-          <Image
-            src={returnVendorLogoFromCodeContext(car.Vehicle['@CodeContext'])}
-            h={4}
-          />
+          <Image src={returnVendorLogoFromCodeContext(car.vendorName)} h={4} />
           <Spacer />
           <Text fontSize="sm" as="i" color="gray.400">
             {car.Vehicle['@Code']}

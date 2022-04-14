@@ -21,7 +21,8 @@ const HomePage: React.FC = () => {
     getSearchResults
   );
 
-  const { filteredCarsList, sort, setSort, setCarsFilter } = useCarsList();
+  const { filteredCarsList, sort, setSort, setCarsFilter, filter } =
+    useCarsList();
 
   return (
     <PageLayout>
@@ -38,7 +39,7 @@ const HomePage: React.FC = () => {
           <ContentContainer marginTop={10}>
             <SortCars sort={sort} setSort={setSort} />
             <Box display="flex" gap={4}>
-              <Sidebar setCarsFilter={setCarsFilter} />
+              <Sidebar setCarsFilter={setCarsFilter} filter={filter} />
               <Box width="100%">
                 <CarsList carsList={filteredCarsList} />
               </Box>

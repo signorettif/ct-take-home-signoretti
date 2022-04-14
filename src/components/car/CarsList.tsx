@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import CarCard from './CarCard';
 
 interface CarsListProps {
-  carsList: CarDetailsWithId[];
+  carsList: CarDetailsWithIdAndVendor[];
 }
 
 const CarsList: React.FC<CarsListProps> = ({ carsList }) => {

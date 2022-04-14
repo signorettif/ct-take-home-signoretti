@@ -1,5 +1,5 @@
 export const returnMinAndMaxPriceFromCarsList = (
-  carsList: CarDetailsWithId[]
+  carsList: CarDetailsWithIdAndVendor[]
 ) => {
   const max = carsList.reduce((acc, car) => {
     const carPrice = parseFloat(car.TotalCharge['@RateTotalAmount']);

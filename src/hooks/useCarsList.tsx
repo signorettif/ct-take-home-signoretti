@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { getVendorsAndCarsList } from '../shared/api/getVendorsAndCarsList';
+import { filterCarsList } from '../shared/utils/filterCarsList';
 
 export const enum carsListSortingOptions {
   PRICE_LOW_TO_HIGH = 'price_low_to_high',
@@ -17,19 +18,21 @@ const useCarsList = () => {
   );
 
   const [sort, setSort] = useState(carsListSortingOptions.PRICE_LOW_TO_HIGH);
-  const [filter, setCarsFilter] = useState<CarsFilter>({});
+  const [filter, setCarsFilter] = useState<CarsFilter>({ vendorsList: [] });
 
   // This should technically be undefined to manage isLoading properly – quick life hack for this assessment
-  let carsList = [] as CarDetailsWithId[];
+  let carsList = [] as CarDetailsWithIdAndVendor[];
 
   if (!isLoading && data) {
     carsList = data
       ?.map((vendorAvailabilities) => {
         const vendorCode = vendorAvailabilities.Vendor['@Code'];
+        const vendorName = vendorAvailabilities.Vendor['@Name'];
 
         return vendorAvailabilities.VehAvails.map((car) => ({
           ...car,
           id: `${vendorCode}-${car.Vehicle['@Code']}`,
+          vendorName,
         }));
       })
       .flat();
@@ -55,21 +58,7 @@ const useCarsList = () => {
     }
   }
 
-  let filteredCarsList = carsList;
-
-  if (filter.minPrice) {
-    filteredCarsList = filteredCarsList.filter(
-      (car) =>
-        parseFloat(car.TotalCharge['@RateTotalAmount']) > filter.minPrice!
-    );
-  }
-
-  if (filter.maxPrice) {
-    filteredCarsList = filteredCarsList.filter(
-      (car) =>
-        parseFloat(car.TotalCharge['@RateTotalAmount']) < filter.maxPrice!
-    );
-  }
+  let filteredCarsList = filterCarsList(carsList, filter);
 
   return {
     carsList,
@@ -78,6 +67,7 @@ const useCarsList = () => {
     setSort,
     isLoading,
     setCarsFilter,
+    filter,
     ...rest,
   };
 };

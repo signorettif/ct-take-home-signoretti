@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import {
   Box,
+  Checkbox,
   Divider,
   Heading,
   RangeSlider,
@@ -14,12 +15,16 @@ import {
 import { returnMinAndMaxPriceFromCarsList } from '../../../shared/utils/returnMinAndMaxPriceFromCarsList';
 
 import useCarsList from '../../../hooks/useCarsList';
+import { VENDORS } from '../../../constants/constants';
+import { toggleItemFromStringArray } from '../../../shared/utils/toggleItemFromArray';
 
 interface SidebarProps {
   setCarsFilter: React.Dispatch<React.SetStateAction<CarsFilter>>;
+  filter: CarsFilter;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ setCarsFilter }) => {
+const Sidebar: React.FC<SidebarProps> = ({ setCarsFilter, filter }) => {
+  console.log(filter);
   const { carsList } = useCarsList();
   const [min, max] = returnMinAndMaxPriceFromCarsList(carsList);
 
@@ -32,7 +37,18 @@ const Sidebar: React.FC<SidebarProps> = ({ setCarsFilter }) => {
   };
 
   const handleSliderChangeEnd = ([min, max]: number[]) => {
-    setCarsFilter({ minPrice: min, maxPrice: max });
+    setCarsFilter((prevFilter) => ({
+      ...prevFilter,
+      minPrice: min,
+      maxPrice: max,
+    }));
+  };
+
+  const toggleVendorFromFilter = (vendor: string) => {
+    setCarsFilter((prevFilter) => ({
+      ...prevFilter,
+      vendorsList: toggleItemFromStringArray(prevFilter.vendorsList, vendor),
+    }));
   };
 
   return (
@@ -40,7 +56,9 @@ const Sidebar: React.FC<SidebarProps> = ({ setCarsFilter }) => {
       <Heading as="h2" size="md">
         Filter
       </Heading>
+
       <Divider marginY={6} />
+
       <Box>
         <Heading as="h3" size="sm">
           Price range
@@ -63,6 +81,28 @@ const Sidebar: React.FC<SidebarProps> = ({ setCarsFilter }) => {
         </RangeSlider>
 
         <Text fontSize="sm">{`${minSelected} $ - ${maxSelected} $`}</Text>
+      </Box>
+
+      <Divider marginY={6} />
+
+      <Box>
+        <Heading as="h3" size="sm">
+          Vendors
+        </Heading>
+
+        {VENDORS.map((vendor, i) => (
+          <Checkbox
+            width="100%"
+            marginTop={4}
+            size="lg"
+            colorScheme="teal"
+            isChecked={filter.vendorsList.indexOf(vendor) > -1}
+            onChange={() => toggleVendorFromFilter(vendor)}
+            key={`vendor-${i}`}
+          >
+            <Text fontSize="sm">{vendor}</Text>
+          </Checkbox>
+        ))}
       </Box>
     </Box>
   );
