@@ -1,11 +1,11 @@
-import { Box, Text } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import CarCard from '../../components/car/CarCard';
-import ContentContainer from '../../components/layout/ContentContainer';
+import { Box, Text } from "@chakra-ui/react";
+import React from "react";
+import { useParams } from "react-router-dom";
+import CarCard from "../../components/car/CarCard";
+import ContentContainer from "../../components/layout/ContentContainer";
 
-import PageLayout from '../../components/layout/PageLayout';
-import useCar from '../../hooks/useCar';
+import PageLayout from "../../components/layout/PageLayout";
+import useCar from "../../hooks/useCar";
 
 interface CarPageProps {}
 
