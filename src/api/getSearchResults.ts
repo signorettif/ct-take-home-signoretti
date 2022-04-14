@@ -1,3 +1,3 @@
-const searchResults = require('../constants/cars.json')[0]['VehAvailRSCore'];
+const searchResults = require('../fixtures/cars.json')[0]['VehAvailRSCore'];
 
 export const getSearchResults = () => searchResults as SearchResults;

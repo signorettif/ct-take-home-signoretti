@@ -2,14 +2,14 @@ import React from 'react';
 
 import { CalendarIcon } from '@chakra-ui/icons';
 import { Grid, GridItem } from '@chakra-ui/react';
-
-import TransmissionIcon from '../icons/TransmissionIcon';
 import CarSpecWithIcon from './CarSpecWithIcon';
-import AirIcon from '../icons/AirIcon';
-import LuggageIcon from '../icons/LuggageIcon';
-import SeatsIcon from '../icons/SeatsIcon';
-import FuelIcon from '../icons/FuelIcon';
-import DoorIcon from '../icons/DoorIcon';
+
+import TransmissionIcon from 'components/icons/TransmissionIcon';
+import AirIcon from 'components/icons/AirIcon';
+import LuggageIcon from 'components/icons/LuggageIcon';
+import SeatsIcon from 'components/icons/SeatsIcon';
+import FuelIcon from 'components/icons/FuelIcon';
+import DoorIcon from 'components/icons/DoorIcon';
 
 interface CarSpecsProps {
   carSpecs: CarDetails['Vehicle'];

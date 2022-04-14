@@ -1,7 +1,8 @@
 import React from "react";
 
-import { Box, Select, Text } from "@chakra-ui/react";
 import { CarsListSortingOptions } from "constants/cars";
+
+import { Box, Select, Text } from "@chakra-ui/react";
 
 interface SortCarsProps {
   sort: CarsListSortingOptions;

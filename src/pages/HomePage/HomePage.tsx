@@ -1,18 +1,20 @@
 import React from "react";
 
 import { useQuery } from 'react-query';
-import { getSearchResults } from '../../api/getSearchResults';
+import { getSearchResults } from 'api/getSearchResults';
+
+import { useCarsList } from "hooks/cars";
 
 import { Box } from "@chakra-ui/react";
 
-import ContentContainer from "../../components/layout/ContentContainer";
+import PageLayout from "components/layout/PageLayout";
+import ContentContainer from "components/layout/ContentContainer";
+import CarsList from "components/car/CarsList";
+import LoadingBox from "components/ui/loadingBox";
+
 import SearchDetails from "./components/SearchDetails";
 import SortCars from "./components/SortCars";
 import Sidebar from "./components/Sidebar";
-import PageLayout from "../../components/layout/PageLayout";
-import CarsList from "../../components/car/CarsList";
-import LoadingBox from "../../components/ui/loadingBox";
-import { useCarsList } from "../../hooks/cars";
 
 const HomePage: React.FC = () => {
   // This is just to show how I would go about actually fetching the data, clearly a bit overkill here

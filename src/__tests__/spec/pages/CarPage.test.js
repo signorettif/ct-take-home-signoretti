@@ -1,9 +1,9 @@
-import { render, screen } from "../../utils/test";
+import { render, screen } from "utils/test";
 
-import CarPage from "../../../pages/CarPage/CarPage";
-import * as carHooks from "../../../hooks/cars";
+import CarPage from "pages/CarPage/CarPage";
+import * as carHooks from "hooks/cars";
 
-import carMock from "../../fixtures/car.json";
+import carMock from "fixtures/car.json";
 
 describe("pages/CarPage", () => {
   beforeEach(() => {

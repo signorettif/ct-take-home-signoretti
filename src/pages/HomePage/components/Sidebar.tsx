@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 
+import { VENDORS } from "constants/cars";
+
+import { returnMinAndMaxPriceFromCarsList } from 'utils/returnMinAndMaxPriceFromCarsList';
+import { toggleItemFromStringArray } from 'utils/toggleItemFromArray';
+
+import useCarsList from "hooks/cars";
+
 import {
   Box,
   Checkbox,
@@ -11,12 +18,6 @@ import {
   RangeSliderTrack,
   Text,
 } from "@chakra-ui/react";
-
-import { returnMinAndMaxPriceFromCarsList } from '../../../utils/returnMinAndMaxPriceFromCarsList';
-
-import useCarsList from '../../../hooks/useCarsList';
-import { VENDORS } from '../../../constants/constants';
-import { toggleItemFromStringArray } from '../../../utils/toggleItemFromArray';
 
 interface SidebarProps {
   setCarsFilter: React.Dispatch<React.SetStateAction<CarsFilter>>;

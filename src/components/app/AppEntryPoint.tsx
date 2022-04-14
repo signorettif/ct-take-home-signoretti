@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
-import HomePage from '../../pages/HomePage/HomePage';
-import CarPage from '../../pages/CarPage/CarPage';
-import FourOFourPage from '../../pages/FourOFourPage/CarPage';
+import HomePage from 'pages/HomePage/HomePage';
+import CarPage from 'pages/CarPage/CarPage';
+import FourOFourPage from 'pages/FourOFourPage/CarPage';
 
 const queryClient = new QueryClient();
 
