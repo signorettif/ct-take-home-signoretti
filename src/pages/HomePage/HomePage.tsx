@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
 import { useQuery } from 'react-query';
 import { getSearchResults } from '../../api/getSearchResults';
 
-import { Box } from '@chakra-ui/react';
+import { Box } from "@chakra-ui/react";
 
-import ContentContainer from '../../components/layout/ContentContainer';
-import SearchDetails from './components/SearchDetails';
-import SortCars from './components/SortCars';
-import Sidebar from './components/Sidebar';
-import PageLayout from '../../components/layout/PageLayout';
-import CarsList from '../../components/car/CarsList';
-import LoadingBox from '../../components/ui/loadingBox';
-import useCarsList from '../../hooks/useCarsList';
+import ContentContainer from "../../components/layout/ContentContainer";
+import SearchDetails from "./components/SearchDetails";
+import SortCars from "./components/SortCars";
+import Sidebar from "./components/Sidebar";
+import PageLayout from "../../components/layout/PageLayout";
+import CarsList from "../../components/car/CarsList";
+import LoadingBox from "../../components/ui/loadingBox";
+import { useCarsList } from "../../hooks/cars";
 
 const HomePage: React.FC = () => {
   // This is just to show how I would go about actually fetching the data, clearly a bit overkill here
   const { data, isLoading } = useQuery<SearchResults, Error>(
-    'search-results',
+    "search-results",
     getSearchResults
   );
 
@@ -30,8 +30,8 @@ const HomePage: React.FC = () => {
         <>
           <ContentContainer marginTop={16}>
             <SearchDetails
-              PickUpDateTime={data.VehRentalCore['@PickUpDateTime']}
-              ReturnDateTime={data.VehRentalCore['@ReturnDateTime']}
+              PickUpDateTime={data.VehRentalCore["@PickUpDateTime"]}
+              ReturnDateTime={data.VehRentalCore["@ReturnDateTime"]}
               {...data.VehRentalCore}
             />
           </ContentContainer>

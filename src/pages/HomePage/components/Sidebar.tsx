@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import {
   Box,
@@ -10,7 +10,7 @@ import {
   RangeSliderThumb,
   RangeSliderTrack,
   Text,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 import { returnMinAndMaxPriceFromCarsList } from '../../../utils/returnMinAndMaxPriceFromCarsList';
 

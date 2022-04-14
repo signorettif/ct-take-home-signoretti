@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { returnVendorLogoFromCodeContext } from '../../utils/returnVendorLogoFromCodeContext';
+import { returnVendorLogoFromCodeContext } from "shared/utils/returnVendorLogoFromCodeContext";
 
 import {
   Box,
@@ -10,9 +10,9 @@ import {
   Image,
   Spacer,
   Text,
-} from '@chakra-ui/react';
-import CarSpecs from './CarSpecs';
-import { useNavigate } from 'react-router-dom';
+} from "@chakra-ui/react";
+import CarSpecs from "./CarSpecs";
+import { useNavigate } from "react-router-dom";
 
 interface CarCardProps {
   car: CarDetailsWithIdAndVendor;
@@ -44,10 +44,11 @@ const CarCard: React.FC<CarCardProps> = ({
       </Box>
       <Box flexGrow={1} marginLeft={4}>
         <Heading as="h2" size="md">
-          {car.Vehicle.VehMakeModel['@Name']}
+          {car.Vehicle.VehMakeModel["@Name"]}
         </Heading>
         <Box display="flex" marginTop={4}>
           <CarSpecs carSpecs={car.Vehicle} />
+<<<<<<< HEAD
 
           <Box
             width="50%"
@@ -60,6 +61,13 @@ const CarCard: React.FC<CarCardProps> = ({
             <Text as="b">
               {car.TotalCharge['@RateTotalAmount']}{' '}
               {car.TotalCharge['@CurrencyCode']}
+=======
+          <Box>
+            <Text>Total price for your trip:</Text>
+            <Text>
+              {car.TotalCharge["@RateTotalAmount"]}{" "}
+              {car.TotalCharge["@CurrencyCode"]}
+>>>>>>> 35d633a (Refactor for testability)
             </Text>
 
             {!hiddenDetailsButton && (
@@ -76,10 +84,17 @@ const CarCard: React.FC<CarCardProps> = ({
         </Box>
         <Divider marginY={4} />
         <Box display="flex" alignItems="center">
+<<<<<<< HEAD
           <Image src={returnVendorLogoFromCodeContext(car.vendorName)} h={4} />
+=======
+          <Image
+            src={returnVendorLogoFromCodeContext(car.Vehicle["@CodeContext"])}
+            h={4}
+          />
+>>>>>>> 35d633a (Refactor for testability)
           <Spacer />
           <Text fontSize="sm" as="i" color="gray.400">
-            {car.Vehicle['@Code']}
+            {car.Vehicle["@Code"]}
           </Text>
         </Box>
       </Box>

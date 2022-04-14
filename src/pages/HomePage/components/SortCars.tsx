@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { Box, Select, Text } from '@chakra-ui/react';
-import { carsListSortingOptions } from '../../../hooks/useCarsList';
+import { Box, Select, Text } from "@chakra-ui/react";
+import { CarsListSortingOptions } from "constants/cars";
 
 interface SortCarsProps {
-  sort: carsListSortingOptions;
-  setSort: React.Dispatch<React.SetStateAction<carsListSortingOptions>>;
+  sort: CarsListSortingOptions;
+  setSort: React.Dispatch<React.SetStateAction<CarsListSortingOptions>>;
 }
 
 const SortCars: React.FC<SortCarsProps> = ({ sort, setSort }) => {
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(event.target.value as carsListSortingOptions);
+    setSort(event.target.value as CarsListSortingOptions);
   };
 
   return (
@@ -28,13 +28,13 @@ const SortCars: React.FC<SortCarsProps> = ({ sort, setSort }) => {
         defaultValue={sort}
         onChange={handleSortChange}
       >
-        <option value={carsListSortingOptions.PRICE_LOW_TO_HIGH}>
+        <option value={CarsListSortingOptions.PRICE_LOW_TO_HIGH}>
           Price: Low to High
         </option>
-        <option value={carsListSortingOptions.PRICE_HIGH_TO_LOW}>
+        <option value={CarsListSortingOptions.PRICE_HIGH_TO_LOW}>
           Price: High to Low
         </option>
-        <option value={carsListSortingOptions.DOORS_LOW_TO_HIGH}>
+        <option value={CarsListSortingOptions.DOORS_LOW_TO_HIGH}>
           Doors: Low to High
         </option>
       </Select>
