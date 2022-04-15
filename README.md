@@ -26,7 +26,7 @@ If you would like to self host this repository on a dedicated server:
 ## Comments
 
 - The app is voluntarily over-engineered for the purpose of demonstrating skills in this assesment
-- `useQuery` and relative API structure has been introduced to show a possible state management technique that would scale well in larger products, but could have completely avoided here given we're dealing with the import of a `json` file
+- `useQuery` and relative API structure has been mocked to show how I would have approached the task if information were to be fetched from a server. This could also be used as a state management technique that would scale well in larger products. Please note I recognise this could have completely avoided here given we're dealing with the import of a `json` file. Also please note that fetching json from source was not convenient given CORS policies on `http://www.cartrawler.com/ctabe/cars.json`.
 - I had to resort to React 17 since both `react-query` and `Chakra-UI` are still working on React 18 compatibility. See [here](https://github.com/tannerlinsley/react-query/issues/3476) for a sample issue I faced
 
 ### Possible improvements:

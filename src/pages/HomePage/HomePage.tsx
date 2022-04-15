@@ -17,7 +17,7 @@ import SortCars from './components/SortCars';
 import Sidebar from './components/Sidebar';
 
 const HomePage: React.FC = () => {
-  // This is just to show how I would go about actually fetching the data, clearly a bit overkill here
+  // See comments on README
   const { data, isLoading } = useQuery<SearchResults, Error>(
     'search-results',
     getSearchResults

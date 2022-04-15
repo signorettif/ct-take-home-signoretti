@@ -50,6 +50,7 @@ const sortNormalizedCarData = (
 };
 
 export const useCarsList = () => {
+  // See comments on README
   const { data, isLoading, ...rest } = useQuery(
     'vendors-and-cars-list',
     getVendorsAndCarsList
