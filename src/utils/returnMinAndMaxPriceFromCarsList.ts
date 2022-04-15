@@ -17,7 +17,5 @@ export const returnMinAndMaxPriceFromCarsList = (
     return acc;
   }, +Infinity);
 
-  console.log(min, max);
-
   return [Math.floor(min), Math.ceil(max)] as [number, number];
 };
